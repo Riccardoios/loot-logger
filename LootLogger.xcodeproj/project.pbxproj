@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3A3F1B492672F53C00EEC4CF /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F1B482672F53C00EEC4CF /* ItemStore.swift */; };
 		3A3F7C4326895AAE0080DAC3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F7C4226895AAE0080DAC3 /* DetailViewController.swift */; };
+		3A45ABFD26AF74A100C523F1 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A45ABFC26AF74A100C523F1 /* ImageStore.swift */; };
 		3A4639A42696689600D85B37 /* ChangeDateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4639A32696689600D85B37 /* ChangeDateVC.swift */; };
 		3A487946267180380055A351 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A487945267180380055A351 /* AppDelegate.swift */; };
 		3A487948267180380055A351 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A487947267180380055A351 /* SceneDelegate.swift */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		3A3F1B482672F53C00EEC4CF /* ItemStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
 		3A3F7C4226895AAE0080DAC3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		3A45ABFC26AF74A100C523F1 /* ImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		3A4639A32696689600D85B37 /* ChangeDateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeDateVC.swift; sourceTree = "<group>"; };
 		3A487942267180380055A351 /* LootLogger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LootLogger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A487945267180380055A351 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				3A487947267180380055A351 /* SceneDelegate.swift */,
 				3A48795B267183DC0055A351 /* Item.swift */,
 				3A3F1B482672F53C00EEC4CF /* ItemStore.swift */,
+				3A45ABFC26AF74A100C523F1 /* ImageStore.swift */,
 				3A59EB8D2682B66700CAEAD8 /* ItemCell.swift */,
 				3A4879592671825D0055A351 /* ItemsViewController.swift */,
 				3A3F7C4226895AAE0080DAC3 /* DetailViewController.swift */,
@@ -157,6 +160,7 @@
 				3A4639A42696689600D85B37 /* ChangeDateVC.swift in Sources */,
 				3A59EB8E2682B66700CAEAD8 /* ItemCell.swift in Sources */,
 				3A487946267180380055A351 /* AppDelegate.swift in Sources */,
+				3A45ABFD26AF74A100C523F1 /* ImageStore.swift in Sources */,
 				3A3F1B492672F53C00EEC4CF /* ItemStore.swift in Sources */,
 				3A487948267180380055A351 /* SceneDelegate.swift in Sources */,
 				3A3F7C4326895AAE0080DAC3 /* DetailViewController.swift in Sources */,
@@ -309,6 +313,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3339537SZN;
 				INFOPLIST_FILE = LootLogger/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -328,6 +333,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3339537SZN;
 				INFOPLIST_FILE = LootLogger/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

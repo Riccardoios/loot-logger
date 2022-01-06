@@ -20,6 +20,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         print(#function)
         guard let _ = (scene as? UIWindowScene) else { return }
         
+        //Create an ImageStore
+        let imageStore = ImageStore()
+        
         // Create an ItemStore
         let itemStore = ItemStore()
         
@@ -27,6 +30,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let navController = window!.rootViewController as! UINavigationController
         let itemsController = navController.topViewController as! ItemsViewController
         itemsController.itemStore = itemStore
+        itemsController.imageStore = imageStore
+        
         
         
         

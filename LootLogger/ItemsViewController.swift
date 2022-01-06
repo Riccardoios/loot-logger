@@ -8,12 +8,20 @@
 import UIKit
 
 class ItemsViewController: UITableViewController {
+    
     var itemStore: ItemStore!
+    var imageStore: ImageStore!
+    
+    let notification = Notification(name: Notification.Name("updateNow"))
+    let notificationCenter = NotificationCenter.default
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         navigationItem.leftBarButtonItem = editButtonItem
         navigationItem.backButtonTitle = ""
+        
+        
+        notificationCenter.addObserver(self, selector: #selector(updateAll), name: Notification.Name("updateNow"), object: nil)
     }
     
     override func viewDidLoad() {
@@ -36,17 +44,22 @@ class ItemsViewController: UITableViewController {
             //figure out which row was just tapped
             if let row = tableView.indexPathForSelectedRow?.row {
                 // get the item associated with this row and pass it along
-                let item = itemStore.allItems[row]
+                let item = ItemStore.allItems[row]
                 let detailViewController = segue.destination as! DetailViewController
                 detailViewController.item = item
+                detailViewController.imageStore = imageStore
             }
         default:
             preconditionFailure("Unexpected segue identifier")
         }
     }
     
+    @objc func updateAll() {
+            tableView.reloadData()
+        }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemStore.allItems.count
+        return ItemStore.allItems.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -58,7 +71,7 @@ class ItemsViewController: UITableViewController {
         // That is on the nth index of items, where n = rows this cell
         // Will appear in on the tableview
         
-        let item = itemStore.allItems[indexPath.row]
+        let item = ItemStore.allItems[indexPath.row]
         
         //configure the cell with the item
         cell.nameLabel.text = item.name
@@ -74,9 +87,14 @@ class ItemsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         //if the table view is asking to commit a delete command..
         if editingStyle == .delete {
-            let item = itemStore.allItems[indexPath.row]
+            let item = ItemStore.allItems[indexPath.row]
+            
             //remove the item from the store
             itemStore.removeItem(item)
+            
+            //remove the item image from the store
+            imageStore.deleteImage(forKey: item.itemKey)
+            
             //also remove that row from the table view with animation
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
@@ -91,11 +109,15 @@ class ItemsViewController: UITableViewController {
         
             let newItem = itemStore.createItem()
        // Figure out where that item is in the array
-            if let index = itemStore.allItems.firstIndex(of: newItem) {
+        if let index = ItemStore.allItems.firstIndex(of: newItem) {
             let indexPath = IndexPath(row: index, section: 0)
         // insert this new row into the table
                 tableView.insertRows(at: [indexPath], with: .automatic)
         }
+        
+        notificationCenter.post(notification)
     }
+    
+    
     
 }
